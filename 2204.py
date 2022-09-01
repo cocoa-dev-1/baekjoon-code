@@ -1,27 +1,13 @@
-li = []
-
-# 32
-
 while True:
     n = int(input())
     if n == 0:
         break
-    last = ""
+    array = []
+    array_origin = []
     for _ in range(n):
-        b = input()
-        a = b.upper()
-        if len(last) == 0:
-            last = b
-            continue
-        if len(last) >= len(b):
-            for i in range(len(last)):
-                if len(b) < i:
-                    last = b
-                if last[i] == a[i]:
-                    continue
-                last = last if ord(last[i]) < ord(a[i]) else b
-                break
-    li.append(last)
-
-for i in li:
-    print(i)
+        txt = input()
+        array.append(txt.upper())
+        array_origin.append(txt)
+    array_sorted = sorted(array)
+    result = array.index(array_sorted[0])
+    print(array_origin[result])
